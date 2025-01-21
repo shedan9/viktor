@@ -109,8 +109,7 @@ const options = Array.from({ length: 10000 }).map((_, idx) => ({
       style="max-width: 600px"
       :model="ruleForm"
       :rules="rules"
-      label-width="auto"
-      class="demo-ruleForm"
+      :label-width="140"
       :size="formSize"
       status-icon
     >

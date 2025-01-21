@@ -1,21 +1,22 @@
 <script setup>
-const activeIndex = '';
+import { useRoute } from 'vue-router';
+import { useDark, useToggle } from '@vueuse/core';
+import { Sunny, Moon } from '@element-plus/icons-vue';
 
-function handleSelect(value) {
-  console.log(value);
-}
+const route = useRoute();
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 <template>
   <el-menu
     router
-    :default-active="activeIndex"
+    :default-active="route.path"
     class="app-head-menu"
     mode="horizontal"
     :ellipsis="false"
-    @select="handleSelect"
   >
-    <el-menu-item index="/">
+    <el-menu-item index="/" route="/">
       <img
         style="height: 32px"
         src="@/assets/img/logo.svg"
@@ -23,19 +24,16 @@ function handleSelect(value) {
       />
       <h1 class="title">Viktor</h1>
     </el-menu-item>
-    <el-menu-item index="/setting">Setting Center</el-menu-item>
-    <el-sub-menu index="2">
-      <template #title>Workspace</template>
-      <el-menu-item index="2-1">item one</el-menu-item>
-      <el-menu-item index="2-2">item two</el-menu-item>
-      <el-menu-item index="2-3">item three</el-menu-item>
-      <el-sub-menu index="2-4">
-        <template #title>item four</template>
-        <el-menu-item index="2-4-1">item one</el-menu-item>
-        <el-menu-item index="2-4-2">item two</el-menu-item>
-        <el-menu-item index="2-4-3">item three</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
+    <el-menu-item index="/setting" route="/setting"
+      >Setting Center</el-menu-item
+    >
+
+    <el-button class="theme-btn" text size="small" @click="toggleDark()">
+      <el-icon size="20">
+        <Moon v-show="isDark" />
+        <Sunny v-show="!isDark" />
+      </el-icon>
+    </el-button>
 
     <el-dropdown>
       <div class="user-avatar">
@@ -61,6 +59,12 @@ function handleSelect(value) {
 
   > .el-menu-item:nth-child(1) {
     margin-right: auto;
+  }
+
+  .theme-btn {
+    width: 80px;
+    height: 100%;
+    margin-left: 12px;
   }
 
   .user-avatar {

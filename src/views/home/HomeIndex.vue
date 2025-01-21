@@ -9,7 +9,7 @@ import FormCard from '@/views/home/components/FormCard.vue';
 <template>
   <AppLayout>
     <StatCard />
-    <el-row gutter="12" style="margin-top: 12px">
+    <el-row :gutter="12" style="margin-top: 12px">
       <el-col :span="12">
         <FormCard />
       </el-col>
