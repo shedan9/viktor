@@ -1,7 +1,15 @@
 # Viktor
 
-Vue project template, includes Lint,Husky,Prettier and so on, based on Vite
+A Vue project template that includes Lint(Eslint, Stylelint, CommitLint, lint-staged), Husky, Prettier, and more, built on Vite
 
 Node version 22.11.0
 
-**_Notice_**: 根据Vue组件命名规范，放弃使用`index`,`Button`等单个单词组件名，推荐使用`CamelCase`风格多单词组件名。
+**_Notice_**: According to Vue component naming conventions, **do not** use `index`,`Button`or other single-word component names. It is recommended to use`CamelCase` style with multi-word component names.
+
+Start project
+
+```shell
+npm install
+
+npm run dev
+```
