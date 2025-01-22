@@ -1,11 +1,3 @@
 {
-  "singleQuote": true,
-  "overrides": [
-    {
-      "files": "*.d.ts",
-      "options": {
-        "embeddedLanguageFormatting": "off"
-      }
-    }
-  ]
+  "singleQuote": true
 }
